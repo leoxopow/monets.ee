@@ -17,17 +17,14 @@
 
     <h4>РАЗДЕЛЫ КАТАЛОГА</h4>
     <ul class="categories">
-        {% if(Theme.bind('user').id) %}
+        {% if(Theme.bind('user').id)==1 %}
             <li><a href="#add_category" data-toggle="modal">Добавить категорию <span class="glyphicon glyphicon-plus-sign"></span></a></li>
         {%  endif %}
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
-        <li><a href="#">monets items<span>(43)</span></a></li>
+        {% for category in Theme.bind('cat') %}
+            <li>
+                <a href="/category/{{ category.id }}">{{category.title}}</a>
+            </li>
+        {%endfor%}
     </ul>
     <form class="search" >
         <input type="text" name="search" id="search" class="form-control" placeholder="Поиск по полям карточки товара">

@@ -4,6 +4,7 @@ class BaseController extends Controller {
 
     protected $theme;
     protected $user;
+    protected $cat;
 
 	/**
 	 * Setup the layout used by the controller.
@@ -20,7 +21,11 @@ class BaseController extends Controller {
         {
             return $user;
         });
-
+        $cat = Category::all();
+        $this->theme->bind('cat', function() use($cat)
+        {
+            return $cat;
+        });
 	}
 
 }

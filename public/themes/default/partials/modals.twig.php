@@ -12,6 +12,9 @@
                         <label for="parent_cat">Новая категория</label>
                         <select name="parent_cat" id="parent_cat" class="form-control">
                             <option value="0">Родительская категория</option>
+                            {% for category in Theme.bind('cat') %}
+                                <option value="{{ category.id }}">{{category.title}}</option>
+                            {%endfor%}
                         </select>
                     </div>
                     <button class="btn btn-primary" type="submit">Добавить</button>
