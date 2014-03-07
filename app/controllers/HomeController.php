@@ -74,7 +74,37 @@ class HomeController extends BaseController {
     }
 
     public function categoryShow($id){
-        return $this->theme->watch('category')->render();
+        $json = array();
+        $goods = Goods::orderBy('id', 'desc')->paginate(12);
+        foreach ($goods as $k=>$goods_item){
+            $json[] = array(
+                'id'        => $goods_item->id,
+                'title'     => $goods_item->title,
+                'price'     => $goods_item->price,
+                'images'    => $goods_item->images
+            );
+
+        }
+        $json = json_encode($json);
+        return $this->theme->watch('category', compact('goods','json'))->render();
+    }
+
+    public function postGoods(){
+        $input = Input::all();
+        $goods = new Goods();
+        $goods->title = $input['title'];
+        $goods->price = $input['price'];
+        $category = Category::find($input['category']);
+        $file = Input::file('thumbnail');
+        if(Input::hasFile('thumbnail')){
+            $name = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $file->move('uploads/', $name);
+            $goods->images = $name;
+        }
+        $goods->save();
+        $category->goods()->associate();
+        return Redirect::back();
     }
 
 }

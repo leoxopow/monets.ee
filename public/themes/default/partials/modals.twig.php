@@ -28,7 +28,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <form action="/addgoods" method="post">
+                <form action="/addgoods" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="good_title">Название товара</label>
                         <input class="form-control" type="text" name="title" id="good_title">
@@ -39,12 +39,15 @@
                     </div>
                     <div class="form-group">
                         <label for="parent_cat">Выбор категории</label>
-                        <select name="parent_cat" id="parent_cat" class="form-control">
+                        <select name="cat" id="parent_cat" class="form-control">
                             {% for category in Theme.bind('cat') %}
                                 <option value="{{ category.id }}">{{category.title}}</option>
                             {%endfor%}
                         </select>
                     </div>
+
+                    <input type="file" class="form-control" name="thumbnail" id="thumbnail">
+                    <button type="submit" class="btn">Добавить</button>
                 </form>
             </div>
         </div>

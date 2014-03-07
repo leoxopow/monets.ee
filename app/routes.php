@@ -18,3 +18,4 @@ Route::post('login', array('uses'=>'HomeController@postLogin') );
 Route::get('logout', array('uses'=>'HomeController@logout'));
 Route::post('addcategory', array('uses'=>'HomeController@addCategory'));
 Route::get('category/{id}', array('as'=>'category', 'uses'=>'HomeController@categoryShow'));
+Route::post('addgoods', array('uses'=>'HomeController@postGoods'));
