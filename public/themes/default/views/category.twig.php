@@ -1,3 +1,5 @@
+<div class="container clearfix">
+    {{ Theme.partial('sidebar') }}
 <div class="content pull-right">
     <div class="clearfix">
         <h4 class="pull-left mr15">Каталог товаров</h4>
@@ -12,84 +14,84 @@
     </div>
     <div class="goods">
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
             <button class="btn">В корзину</button>
         </div>
         <div class="a-goods">
-            <div class="thumb"><img src="images/monets_thumb.png" alt=""></div>
+            <div class="thumb"><img src="{{ Theme.asset.url('images/monets_thumb.png') }}" alt=""></div>
             <p class="text-center">1 Рубль 1721 г. Серебро,
                 27,32 гр. Состояние: VF</p>
             <div class="price">31 900 руб.</div>
@@ -107,5 +109,6 @@
             <li><a href="#">След. &raquo;</a></li>
         </ul>
     </div>
+    <br/>
 </div>
 </div>

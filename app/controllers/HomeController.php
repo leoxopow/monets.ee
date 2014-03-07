@@ -73,4 +73,8 @@ class HomeController extends BaseController {
         return Redirect::back();
     }
 
+    public function categoryShow($id){
+        return $this->theme->watch('category')->render();
+    }
+
 }

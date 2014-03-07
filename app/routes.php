@@ -17,3 +17,4 @@ Route::post('registration', array('uses'=>'HomeController@postRegistration') );
 Route::post('login', array('uses'=>'HomeController@postLogin') );
 Route::get('logout', array('uses'=>'HomeController@logout'));
 Route::post('addcategory', array('uses'=>'HomeController@addCategory'));
+Route::get('category/{id}', array('as'=>'category', 'uses'=>'HomeController@categoryShow'));
