@@ -225,6 +225,10 @@ ul.categories li a span {
   text-align: center;
   line-height: 166px;
   margin-bottom: 20px;
+  overflow: hidden;
+}
+.a-goods .thumb img {
+  max-height: 150px;
 }
 .a-goods .btn {
   width: 100%;

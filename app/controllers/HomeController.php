@@ -75,7 +75,7 @@ class HomeController extends BaseController {
 
     public function categoryShow($id){
         $json = array();
-        $goods = Goods::orderBy('id', 'desc')->paginate(12);
+        $goods = Category::find($id)->goods()->orderBy('id','desc')->paginate(12);
         foreach ($goods as $k=>$goods_item){
             $json[] = array(
                 'id'        => $goods_item->id,
@@ -85,7 +85,9 @@ class HomeController extends BaseController {
             );
 
         }
+
         $json = json_encode($json);
+        $this->theme->appendTitle("Категория");
         return $this->theme->watch('category', compact('goods','json'))->render();
     }
 
@@ -94,7 +96,7 @@ class HomeController extends BaseController {
         $goods = new Goods();
         $goods->title = $input['title'];
         $goods->price = $input['price'];
-        $category = Category::find($input['category']);
+        $category = Category::find($input['cat']);
         $file = Input::file('thumbnail');
         if(Input::hasFile('thumbnail')){
             $name = $file->getClientOriginalName();
@@ -103,7 +105,7 @@ class HomeController extends BaseController {
             $goods->images = $name;
         }
         $goods->save();
-        $category->goods()->associate();
+        $goods->categories()->attach($category->id);
         return Redirect::back();
     }
 
