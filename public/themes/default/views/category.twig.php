@@ -15,10 +15,13 @@
     <div class="goods clearfix">
         {% for good in goods %}
         <div class="a-goods">
-            <div class="thumb"><img src="/uploads/{{ good.images }}" alt=""></div>
+            <div class="thumb"><a href="/goods/{{ good.id }}"><img src="/uploads/{{ good.thumb }}" alt=""></a></div>
             <p class="text-center">{{ good.title }}</p>
             <div class="price">{{ good.price }} руб.</div>
-            <button class="btn">В корзину</button>
+            <form class="good-form" action="" method="post">
+                <input type="hidden" value="{{ good.id }}">
+                <button class="btn btn-default" type="submit">В корзину</button>
+            </form>
         </div>
         {% endfor %}
 

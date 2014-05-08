@@ -24,7 +24,7 @@
     </div>
 </div>
 <div id="add_goods" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -47,9 +47,11 @@
                     </div>
 
                     <input type="file" class="form-control" name="thumbnail" id="thumbnail">
-                    <button type="submit" class="btn">Добавить</button>
+                    <textarea name="description" id="description_textarea" cols="30" rows="10"></textarea>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+

@@ -40,4 +40,24 @@ $(document).ready(function(){
             }
         }
     });
+
+    tinymce.init({
+        selector: "textarea",
+        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist ist numlist "
+    });
+    $('.good-form').each(function(k, v){
+        $(v).submit(function(){
+            var goodId = $(v).children('input').val();
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: "/addToCard",
+                data: {good_id : goodId},
+                success: function(data){
+                    alert('ok');
+                }
+            });
+            return false;
+        });
+    });
 });

@@ -30,7 +30,7 @@
                 <label for="phone">Телефон</label>
                 <input class="form-control" name="phone" id="phone" type="text" placeholder="Введите телефон">
             </div>
-            <button class="btn btn-lg" type="submit">Зарегистрироваться</button>
+            <button class="btn btn-default btn-lg" type="submit">Зарегистрироваться</button>
         </form>
     </div>
 </div>

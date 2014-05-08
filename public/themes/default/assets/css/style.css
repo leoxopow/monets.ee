@@ -99,7 +99,7 @@ textarea.form-control:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(187, 187, 187, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(187, 187, 187, 0.6);
 }
-.btn {
+.btn-default {
   border: 1px solid #ba4300;
   height: 40px;
   line-height: 40px;
@@ -110,10 +110,10 @@ textarea.form-control:focus {
   text-shadow: 1px 1px 0px #ae490f;
   color: #ffffff;
   font-size: 18px;
-  padding: 0 25px;
+  padding: 0 7px;
   text-transform: uppercase;
 }
-.btn:hover {
+.btn-default:hover {
   background: url("../images/btn-sprite.png") repeat-x bottom;
   color: #ffffff;
   text-shadow: none;
@@ -229,6 +229,10 @@ ul.categories li a span {
 }
 .a-goods .thumb img {
   max-height: 150px;
+}
+.a-goods .thumb a {
+  display: block;
+  height: 100%;
 }
 .a-goods .btn {
   width: 100%;
@@ -498,4 +502,22 @@ label.error {
 }
 .modal-sm {
   width: 400px;
+}
+.mce-container.mce-menubar.mce-toolbar.mce-first.mce-stack-layout-item {
+  display: none !important;
+}
+.posa_btns {
+  left: 5px;
+  z-index: 4;
+  width: 150px;
+  height: 40px;
+  position: absolute !important;
+  top: 5px;
+  line-height: normal !important;
+}
+.cart_good img {
+  width: 50px;
+}
+.table-cart {
+  background: #ffffff;
 }

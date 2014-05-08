@@ -19,3 +19,8 @@ Route::get('logout', array('uses'=>'HomeController@logout'));
 Route::post('addcategory', array('uses'=>'HomeController@addCategory'));
 Route::get('category/{id}', array('as'=>'category', 'uses'=>'HomeController@categoryShow'));
 Route::post('addgoods', array('uses'=>'HomeController@postGoods'));
+Route::get('goods/{id}', array('as'=>'goods', 'uses'=>'HomeController@goodsShow'));
+Route::post('updategoods/{id}', array('uses'=>'HomeController@goodsUpdate'));
+Route::post('addToCard', array('uses'=>'HomeController@addToCard'));
+Route::get('cart', array('as'=>'cart', 'uses'=>'HomeController@showCart'));
+Route::get('orders', array('as'=>'orders', 'uses'=>'HomeController@showOrders'));
