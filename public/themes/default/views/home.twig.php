@@ -30,13 +30,18 @@
                     ГРИВНА»</h4>
             </div>
             <div class="col-md-9 col-xs-9 pr0">
-                <p>Сайт «Золотая гривна» создан для того, чтобы помочь Вам в покупке различных монет. Он целиком посвящен коллекционированию советских и российских монет регулярного чекана, а также юбилейных монет СССР и России. Здесь Вы сможете найти интересные материалы по истории разменной монеты в СССР и России, ответы на многие вопросы о коллекционировании монет, узнаете о том, как оценивается состояние монет, как правильно их покупать.</p>
+                <p>Сайт «Золотая гривна» создан для того, чтобы помочь Вам в покупке различных монет. Он целиком
+                    посвящен коллекционированию советских и российских монет регулярного чекана, а также юбилейных монет
+                    СССР и России. Здесь Вы сможете найти интересные материалы по истории разменной монеты в СССР и
+                    России, ответы на многие вопросы о коллекционировании монет, узнаете о том, как оценивается
+                    состояние монет, как правильно их покупать.</p>
             </div>
         </div>
     </div>
 </div>
 <div class="container clearfix">
     <h4 class="pull-left mr15">ТОВАРЫ ИЗ КАТАЛОГА</h4>
+
     <div class="col-md-6 col-xs-6 bd-strip"></div>
     <div class="col-md-3 col-xs-3 text-right pull-right sorting pr0">
         Сортировать:
@@ -49,20 +54,39 @@
 <div class="clearfix container">
     <div class="ml-31">
         {% for good in goods %}
-        <div class="a-goods">
-            <div class="thumb"><a href="/goods/{{ good.id }}"><img src="/uploads/{{ good.thumb }}" alt=""></a></div>
-            <p class="text-center">{{ good.title }}</p>
-            <div class="price">{{ good.price }} руб.</div>
-            <form class="good-form" action="" method="post">
-                <input value="{{ good.id }}" type="hidden">
-                <button class="btn btn-default">В корзину</button>
-            </form>
-        </div>
+            <div class="a-goods">
+                {% if(Theme.bind('user').id)==1 %}
+                <div class="posa_btns">
+                    <form action="/delete_goods" method="post">
+                        <input name="goodsId" type="hidden" value="{{ good.id }}">
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </form>
+                </div>
+                {% endif %}
+                <div class="thumb"><a href="/goods/{{ good.id }}"><img src="/uploads/{{ good.thumb }}" alt=""></a></div>
+                <p class="text-center">{{ good.title }}</p>
+
+                <div class="price">{{ good.price }} руб.</div>
+                <form class="good-form" action="" method="post">
+                    <input value="{{ good.id }}" type="hidden">
+                    <button class="btn btn-default">В корзину</button>
+                </form>
+            </div>
         {% endfor %}
     </div>
 </div>
 <div class="clearfix container">
-    <div class="banner-bottom"><img src="{{ Theme.asset.url('images/bottom-baner1.png') }}" alt=""><div class="title">МАГАЗИН «МОНЕТЫ»</div></div>
-    <div class="banner-bottom"><img src="{{ Theme.asset.url('images/bottom-baner2.png') }}" alt=""><div class="title">МАГАЗИН «МОНЕТЫ»</div></div>
-    <div class="banner-bottom"><img src="{{ Theme.asset.url('images/bottom-baner3.png') }}" alt=""><div class="title">МАГАЗИН «МОНЕТЫ»</div></div>
+    <div class="banner-bottom"><img src="{{ Theme.asset.url('images/bottom-baner1.png') }}" alt="">
+
+        <div class="title">МАГАЗИН «МОНЕТЫ»</div>
+    </div>
+    <div class="banner-bottom"><img src="{{ Theme.asset.url('images/bottom-baner2.png') }}" alt="">
+
+        <div class="title">МАГАЗИН «МОНЕТЫ»</div>
+    </div>
+    <div class="banner-bottom"><img src="{{ Theme.asset.url('images/bottom-baner3.png') }}" alt="">
+
+        <div class="title">МАГАЗИН «МОНЕТЫ»</div>
+    </div>
 </div>

@@ -9,7 +9,7 @@
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         {{ Theme.asset().styles() }}
-        <link rel="shortcut icon" type="image/x-icon" href="{{ Theme.asset.url('favicon.ico') }}"/>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ Theme.asset.url('favicon.ico') }}">
     </head>
 
     <body>

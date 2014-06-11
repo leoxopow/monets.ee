@@ -1,4 +1,3 @@
-util.print: Use console.log instead
 * {
   margin: 0;
   padding: 0;
@@ -214,6 +213,7 @@ ul.categories li a span {
   cursor: pointer;
 }
 .a-goods {
+  position: relative;
   float: left;
   width: 168px;
   margin-left: 31px;
@@ -420,13 +420,15 @@ h5 a {
   line-height: 33px;
   vertical-align: middle;
 }
-.pagination li a {
+.pagination li a,
+.pagination li span {
   background: transparent;
   border: none;
   color: #626262;
   font-size: 12px;
 }
-.pagination li.active a {
+.pagination li.active a,
+.pagination li.active span {
   background: #dddddd;
   border-radius: 10px;
   border: 1px solid #bcbcbc;
@@ -440,7 +442,9 @@ h5 a {
   margin: 0 10px;
 }
 .pagination li:first-child a,
-.pagination li:last-child a {
+.pagination li:last-child a,
+.pagination li:first-child span,
+.pagination li:last-child span {
   vertical-align: middle;
   background: #fa7429;
   line-height: 30px !important;
@@ -453,7 +457,12 @@ h5 a {
   color: #ffffff;
 }
 .pagination li:first-child.disabled a,
-.pagination li:last-child.disabled a {
+.pagination li:last-child.disabled a,
+.pagination li:first-child.disabled span,
+.pagination li:last-child.disabled span {
+  height: 32px;
+  line-height: 30px;
+  display: inline-block;
   color: #626262;
   background: #dddddd;
   border: 1px solid #bcbcbc;
@@ -515,9 +524,28 @@ label.error {
   top: 5px;
   line-height: normal !important;
 }
+.posa_btns .btn {
+  width: auto;
+}
 .cart_good img {
   width: 50px;
 }
 .table-cart {
   background: #ffffff;
+}
+#cart_count {
+  vertical-align: bottom;
+  color: #e25607;
+}
+.bg-danger {
+  padding: 10px;
+  background-color: #f2dede;
+}
+.bg-warning {
+  padding: 10px;
+  background-color: #fcf8e3;
+}
+.bg-success {
+  padding: 10px;
+  background-color: #dff0d8;
 }

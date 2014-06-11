@@ -20,19 +20,8 @@ class HomeController extends BaseController
     public function index()
     {
         $goods = Goods::take(5)->orderBy('id', 'desc')->get();
-        foreach ($goods as $k => $goods_item) {
-            $json[] = array(
-                'id' => $goods_item->id,
-                'title' => $goods_item->title,
-                'price' => $goods_item->price,
-                'thumb' => $goods_item->thumb
-            );
-
-        }
-
-        $json = json_encode($json);
         $this->theme->appendTitle("Главная");
-        return $this->theme->watch('home', compact('goods', 'json'))->render();
+        return $this->theme->watch('home', compact('goods'))->render();
     }
 
     public function registration()
@@ -93,21 +82,9 @@ class HomeController extends BaseController
 
     public function categoryShow($id)
     {
-        $json = array();
         $goods = Category::find($id)->goods()->orderBy('id', 'desc')->with('images')->paginate(12);
-        foreach ($goods as $k => $goods_item) {
-            $json[] = array(
-                'id' => $goods_item->id,
-                'title' => $goods_item->title,
-                'price' => $goods_item->price,
-                'thumb' => $goods_item->thumb
-            );
-
-        }
-
-        $json = json_encode($json);
         $this->theme->appendTitle("Категория");
-        return $this->theme->watch('category', compact('goods', 'json'))->render();
+        return $this->theme->watch('category', compact('goods'))->render();
     }
 
     public function postGoods()
@@ -140,18 +117,9 @@ class HomeController extends BaseController
 
     public function goodsShow($id)
     {
-        $json = array();
         $goods = Goods::find($id);
-        $json[] = array(
-            'id' => $goods->id,
-            'title' => $goods->title,
-            'price' => $goods->price,
-            'images' => $goods->thumb
-        );
-
-        $json = json_encode($json);
         $this->theme->appendTitle($goods->title);
-        return $this->theme->watch('goods', compact('goods','json'))->render();
+        return $this->theme->watch('goods', compact('goods'))->render();
     }
 
     public function goodsUpdate($id){
@@ -166,31 +134,97 @@ class HomeController extends BaseController
     public function addToCard(){
         $input = Input::all();
         $itemId = $input['good_id'];
-        Session::Push('cart', array('item' => $itemId));
-        return Response::json(array(1));
+        Session::push('cart', array('item' => $itemId));
+        $goods_count = count(Session::get('cart'));
+        return Response::json(array($goods_count));
     }
     public function showCart(){
-        $goods_ids = Session::get('cart');
-        $goods = array();
-        $json = array();
-        foreach($goods_ids as $v) {
-            $goods[] = Goods::find($v['item']);
+        if(Session::get('cart')){
+            $goods_ids = Session::get('cart');
+            $goods = array();
+            foreach($goods_ids as $v) {
+                $goods[] = Goods::find($v['item']);
+            }
         }
-        foreach ($goods as $k => $goods_item) {
-            $json[] = array(
-                'id' => $goods_item->id,
-                'title' => $goods_item->title,
-                'price' => $goods_item->price,
-                'thumb' => $goods_item->thumb
-            );
-
-        }
-        $json = json_encode($json);
         $this->theme->appendTitle('Корзина');
-        return $this->theme->watch('cart', compact('goods', 'json'))->render();
+        return $this->theme->watch('cart', compact('goods'))->render();
+    }
+
+    public function deleteFromCart(){
+        $input = Input::all();
+        $goods_ids = Session::get('cart');
+        unset($goods_ids[$input['number_goods']]);
+        sort($goods_ids);
+        Session::set('cart', $goods_ids);
+        return Redirect::back();
+    }
+    public function deleteGoods(){
+        $input = Input::all();
+        Goods::find($input['goodsId'])->delete();
+        return Redirect::route('home');
+    }
+    public function addOrder(){
+        $input = Input::all();
+        $order = new Order();
+        $order->goods = serialize($input['goods']);
+        $order->status = 0;
+        $order->customer = $input['your_name'];
+        $order->customer_mail = $input['your_mail'];
+        $order->customer_phone = $input['your_phone'];
+        $order->save();
+        Session::forget('cart');
+        return Redirect::route('home');
     }
     public function showOrders(){
+        $orders = Order::orderBy('id','desc')->paginate(15);
         $this->theme->appendTitle('Просмотр заказов');
-        return $this->theme->watch('orders')->render;
+        return $this->theme->watch('orders', compact('orders'))->render();
     }
+    public function showOrder($id){
+        $order = Order::find($id);
+        $goods_ids = unserialize($order->goods);
+        $goods = Goods::whereIn('id', $goods_ids)->get();
+
+        return $this->theme->watch('order', compact('order', 'goods'))->render();
+    }
+    public function saveStatus(){
+        $input = Input::all();
+        $order = Order::find($input['id']);
+        $order->status = $input['status'];
+        $order->save();
+        if($input['status'] == 0)
+            return 'В ожидании';
+        elseif($input['status'] == 1)
+            return 'В обработке';
+        elseif($input['status'] == 2)
+            return 'Выполнен';
+
+    }
+    public function addNews(){
+        $input = Input::all();
+        $news = new News();
+        $news->title = $input['news_title'];
+        $news->news_content = $input['news_content'];
+        $news->save();
+        return Redirect::back();
+    }
+    public function showNews(){
+        $news = News::paginate(10);
+        $this->theme->appendTitle("Новости");
+        return $this->theme->watch('news', compact('news'))->render();
+    }
+    public function oneNews($id){
+        $news = News::find($id);
+        $this->theme->appendTitle($news->title);
+        return $this->theme->watch('newsone', compact('news'))->render();
+    }
+    public function editNews($id){
+        $input = Input::all();
+        $news = News::find($id);
+        $news->title = $input['title'];
+        $news->news_content = $input['news_content'];
+        $news->save();
+        return Redirect::back();
+    }
+
 }

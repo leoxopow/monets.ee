@@ -15,6 +15,15 @@
     <div class="goods clearfix">
         {% for good in goods %}
         <div class="a-goods">
+            {% if(Theme.bind('user').id)==1 %}
+            <div class="posa_btns">
+                <form action="/delete_goods" method="post">
+                    <input name="goodsId" type="hidden" value="{{ good.id }}">
+                    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </form>
+            </div>
+            {% endif %}
             <div class="thumb"><a href="/goods/{{ good.id }}"><img src="/uploads/{{ good.thumb }}" alt=""></a></div>
             <p class="text-center">{{ good.title }}</p>
             <div class="price">{{ good.price }} руб.</div>
@@ -27,15 +36,7 @@
 
     </div>
     <div class="text-center">
-        <ul class="pagination">
-            <li class="disabled"><a href="#">&laquo; Пред.</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">След. &raquo;</a></li>
-        </ul>
+        {{ goods.links() }}
     </div>
     <br/>
 </div>

@@ -26,6 +26,13 @@ class BaseController extends Controller {
         {
             return $cat;
         });
+        if (Session::get('cart')){
+            $cart_count = count(Session::get('cart'));
+            $this->theme->bind('cart_count', function() use($cart_count)
+            {
+                return $cart_count;
+            });
+        }
 	}
 
 }

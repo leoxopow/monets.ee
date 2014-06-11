@@ -54,4 +54,28 @@
         </div>
     </div>
 </div>
+<div id="succes_to_cart" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <h2 class="text-center">Ваш товар успешно добавлен в корзину</h2>
+        </div>
+    </div>
+</div>
 
+<div id="add_news" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <form action="/add_news" method="post">
+                    <div class="form-group">
+                        <label for="news_title"></label>
+                        <input type="text" name="news_title" id="news_title" class="form-control" placeholder="Заголовок статьи">
+                    </div>
+                    <textarea name="news_content" id="news_textarea" cols="30" rows="10" ></textarea>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

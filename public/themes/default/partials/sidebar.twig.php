@@ -1,11 +1,12 @@
 <aside class="pull-left">
     {% if(Theme.bind('user') != null) %}
-        <p>Добро пожаловать,  {{ Theme.bind('user').username }}!</p>
+        <p>Добро пожаловать,  {{ Theme.bind('user').firstname }}!</p>
         <ul>
             {% if(Theme.bind('user').id)==1 %}
                 <li><a href="#add_category" data-toggle="modal">Добавить категорию <span class="glyphicon glyphicon-plus-sign"></span></a></li>
                 <li><a href="#add_goods" data-toggle="modal">Добавить товар <span class="glyphicon glyphicon-plus-sign"></span></a></li>
                 <li><a href="/orders">Заказы <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                <li><a href="#add_news" data-toggle="modal">Добавить новость <span class="glyphicon glyphicon-plus-sign"></span></a></li>
             {%  endif %}
         </ul>
         <p>

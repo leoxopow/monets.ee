@@ -214,6 +214,7 @@ ul.categories{
   }
 }
 .a-goods{
+  position: relative;
   float: left;
   width: 168px;
   margin-left: 31px;
@@ -426,14 +427,14 @@ h5{
     margin: 0;
     line-height: 33px;
     vertical-align: middle;
-    a{
+    a, span{
       background: transparent;
       border: none;
       color: #626262;
       font-size: 12px;
     }
     &.active{
-      a{
+      a, span{
         background: #dddddd;
         border-radius: 10px;
         border: 1px solid #bcbcbc;
@@ -446,7 +447,7 @@ h5{
     }
     &:first-child, &:last-child{
       margin: 0 10px;
-      a{
+      a, span{
         vertical-align: middle;
         background: #fa7429;
         line-height: 30px !important;
@@ -460,7 +461,10 @@ h5{
       }
       &.disabled{
 
-        a{
+        a, span{
+          height: 32px;
+          line-height: 30px;
+          display: inline-block;
           color: #626262;
           background: #dddddd;
           border: 1px solid #bcbcbc;
@@ -530,6 +534,9 @@ label.error{
   position: absolute !important;
   top: 5px;
   line-height: normal !important;
+  .btn{
+    width: auto;
+  }
 }
 .cart_good{
   img{
@@ -538,4 +545,20 @@ label.error{
 }
 .table-cart{
   background: #ffffff;
+}
+#cart_count{
+  vertical-align: bottom;
+  color: #e25607;
+}
+.bg-danger {
+  padding: 10px;
+  background-color: #f2dede;
+}
+.bg-warning {
+  padding: 10px;
+  background-color: #fcf8e3;
+}
+.bg-success {
+  padding: 10px;
+  background-color: #dff0d8;
 }

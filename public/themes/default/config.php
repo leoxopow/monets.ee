@@ -62,7 +62,7 @@ return array(
             $theme->asset()->usePath()->add('style', 'css/style.css');
 
 
-            $theme->asset()->add('jquery', '//code.jquery.com/jquery-1.9.0.js');
+            $theme->asset()->usePath()->add('jquery', 'js/jquery-1.9.1.min.js');
             $theme->asset()->usePath()->add('bootstrap', 'js/bootstrap.min.js');
             $theme->asset()->usePath()->add('selectors', 'js/jquery.customSelect.min.js');
             $theme->asset()->usePath()->add('validate', 'js/jquery.validate.min.js');
